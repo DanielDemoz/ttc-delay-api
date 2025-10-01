@@ -17,13 +17,15 @@ An end-to-end machine learning project using **FastAPI** to serve a model that p
 
 ```
 ttc_delay_api/
-├── main.py                          # FastAPI application (API code)
-├── random_forest_model_new_task.pkl # Trained Random Forest model
-├── label_encoders_new_task.pkl      # Encoders for categorical features
-├── requirements.txt                 # Python dependencies
-├── README.md                        # Project documentation
-├── .gitignore                       # Ignored files for GitHub
-└── assets/                          # Optional: visualizations, plots, screenshots
+├── main.py
+├── requirements.txt
+├── model_training.ipynb    # Colab notebook with full ML pipeline
+├── random_forest_model_new_task.pkl
+├── label_encoders_new_task.pkl
+├── README.md
+├── .gitignore
+
+
 ```
 
 ---
@@ -137,6 +139,26 @@ py -m pip install -r requirements.txt
 7. FastAPI app created to serve predictions.  
 
 ---
+## Reproducibility
+
+The full training workflow is available in the Jupyter Notebook:
+
+- [`model_training.ipynb`](./model_training.ipynb)
+
+This notebook covers:
+1. Data loading from Toronto Open Data API  
+2. Cleaning and feature engineering  
+3. Exploratory Data Analysis (EDA) with plots  
+4. Model training and evaluation  
+5. Export of trained model (`random_forest_model_new_task.pkl`)  
+6. Export of label encoders (`label_encoders_new_task.pkl`)  
+
+To run it locally or in Google Colab:
+1. Open `model_training.ipynb`
+2. Install required dependencies (`pandas`, `scikit-learn`, `matplotlib`, `seaborn`)
+3. Run all cells
+4. Export the trained model & encoders for deployment with the FastAPI app
+
 
 ## License
 This project is open-source and available for educational and research purposes.
