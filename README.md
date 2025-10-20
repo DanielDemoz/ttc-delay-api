@@ -1,5 +1,10 @@
 # 🚇 TTC Delay Prediction & Route Optimization
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-View_Now-blue?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-green?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
+
+## 🌐 **[👉 LIVE DEMO - CLICK HERE 👈](https://danieldemoz.github.io/ttc-delay-api/)**
+
 An advanced machine learning project that predicts **major delays (>5 minutes)** in the Toronto TTC subway system and provides **route optimization** with interactive map visualization.
 
 ## ✨ Features
