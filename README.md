@@ -1,9 +1,9 @@
-# TTC Delay Prediction & Route Optimization
+# TTC Predict
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Now-blue?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
-[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-green?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Now-blue?style=for-the-badge)](https://danieldemoz.github.io/ttc-predict/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-green?style=for-the-badge)](https://danieldemoz.github.io/ttc-predict/)
 
-## **[LIVE DEMO - CLICK HERE](https://danieldemoz.github.io/ttc-delay-api/)**
+## **[LIVE DEMO - CLICK HERE](https://danieldemoz.github.io/ttc-predict/)**
 
 An advanced machine learning project that predicts **major delays (>5 minutes)** in the Toronto TTC subway system and provides **route optimization** with interactive map visualization.
 
@@ -38,15 +38,14 @@ An advanced machine learning project that predicts **major delays (>5 minutes)**
 ## Project Structure
 
 ```
-ttc-delay-api/
+ttc-predict/
 ├── main.py                          # FastAPI application with web interface
 ├── train_model.py                   # Model training script
-├── deploy.py                        # Static deployment script
 ├── requirements.txt                 # Python dependencies
 ├── model_training.ipynb            # Jupyter notebook with full ML pipeline
 ├── random_forest_model_new_task.pkl # Trained ML model
 ├── label_encoders_new_task.pkl     # Feature encoders
-├── index.html                      # Static web interface (generated)
+├── docs/index.html                 # Web interface
 ├── .github/workflows/deploy.yml    # GitHub Actions deployment
 ├── README.md                       # This file
 └── LICENSE                         # MIT License
@@ -80,8 +79,8 @@ ttc-delay-api/
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/ttc-delay-api.git
-cd ttc-delay-api
+git clone https://github.com/DanielDemoz/ttc-predict.git
+cd ttc-predict
 ```
 
 2. **Install Dependencies**
@@ -114,7 +113,7 @@ py deploy.py
 2. **Deploy to GitHub Pages**
 - Push to main branch
 - GitHub Actions will automatically deploy
-- Access at: `https://yourusername.github.io/ttc-delay-api`  
+- Access at: `https://danieldemoz.github.io/ttc-predict`  
 
 ---
 
