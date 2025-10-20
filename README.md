@@ -1,33 +1,33 @@
-# 🚇 TTC Delay Prediction & Route Optimization
+# TTC Delay Prediction & Route Optimization
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-View_Now-blue?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Now-blue?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-green?style=for-the-badge)](https://danieldemoz.github.io/ttc-delay-api/)
 
-## 🌐 **[👉 LIVE DEMO - CLICK HERE 👈](https://danieldemoz.github.io/ttc-delay-api/)**
+## **[LIVE DEMO - CLICK HERE](https://danieldemoz.github.io/ttc-delay-api/)**
 
 An advanced machine learning project that predicts **major delays (>5 minutes)** in the Toronto TTC subway system and provides **route optimization** with interactive map visualization.
 
-## ✨ Features
+## Features
 
-### 🎯 Core Functionality
+### Core Functionality
 - **Delay Prediction**: Predicts major delays using machine learning
 - **Route Optimization**: Finds the best routes considering delay probabilities
 - **Interactive Map**: Visualizes stations with delay risk indicators
 - **Real-time Predictions**: Get instant delay probability for any station
 
-### 🗺️ Map Visualization
+### Map Visualization
 - **Station Map**: Interactive map showing all TTC stations
 - **Risk Indicators**: Color-coded markers (green/orange/red) based on delay probability
 - **Station Details**: Click markers to see delay probability and station info
 - **Route Visualization**: See optimized routes on the map
 
-### 🚀 Route Optimization
+### Route Optimization
 - **Multi-route Planning**: Compare different route options
 - **Delay Risk Assessment**: Routes ranked by total delay risk
 - **Time Preferences**: Optimize for rush hour, off-peak, or any time
 - **Transfer Optimization**: Smart transfer point recommendations
 
-### 🛠️ Technical Features
+### Technical Features
 - **FastAPI Backend**: High-performance REST API
 - **Machine Learning**: RandomForestClassifier with 85% accuracy
 - **Interactive Web UI**: Modern, responsive interface
@@ -35,7 +35,7 @@ An advanced machine learning project that predicts **major delays (>5 minutes)**
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ttc-delay-api/
@@ -74,7 +74,7 @@ ttc-delay-api/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Run Locally
 
@@ -118,7 +118,7 @@ py deploy.py
 
 ---
 
-## 🔧 API Endpoints
+## API Endpoints
 
 ### Delay Prediction
 **POST** `/predict`
@@ -174,7 +174,7 @@ Returns API status and model loading information.
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 ```txt
 fastapi
@@ -195,23 +195,23 @@ py -m pip install -r requirements.txt
 
 ---
 
-## 🎯 Key Features Explained
+## Key Features Explained
 
-### 🗺️ Interactive Map
+### Interactive Map
 - **Real-time Visualization**: See all TTC stations on an interactive map
 - **Risk Indicators**: Color-coded markers show delay probability
-  - 🟢 Green: Low risk (< 10%)
-  - 🟠 Orange: Medium risk (10-30%)
-  - 🔴 Red: High risk (> 30%)
+  - Green: Low risk (< 10%)
+  - Orange: Medium risk (10-30%)
+  - Red: High risk (> 30%)
 - **Station Details**: Click any marker for detailed information
 
-### 🚀 Route Optimization
+### Route Optimization
 - **Smart Routing**: Considers delay probabilities when planning routes
 - **Multiple Options**: Compare different route alternatives
 - **Time Preferences**: Optimize for rush hour, off-peak, or any time
 - **Transfer Points**: Intelligent transfer station recommendations
 
-### 🤖 Machine Learning
+### Machine Learning
 - **Model**: RandomForestClassifier with 85% accuracy
 - **Features**: Line, Station, Code, DayOfWeek
 - **Prediction**: Major delay probability (>5 minutes)
@@ -219,7 +219,7 @@ py -m pip install -r requirements.txt
 
 ---
 
-## 🔄 Development Workflow
+## Development Workflow
 
 1. **Data Collection**: Toronto Open Data API
 2. **Data Processing**: Cleaning, feature engineering, encoding
@@ -229,7 +229,7 @@ py -m pip install -r requirements.txt
 
 ---
 
-## 📊 Model Performance
+## Model Performance
 
 - **Accuracy**: 85%
 - **Precision**: 89% (No delay), 44% (Major delay)
@@ -242,7 +242,7 @@ py -m pip install -r requirements.txt
 
 ---
 
-## 🚀 Deployment Options
+## Deployment Options
 
 ### Local Development
 ```bash
@@ -268,5 +268,5 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-## 📝 License
+## License
 This project is open-source and available under the MIT License for educational and research purposes.
