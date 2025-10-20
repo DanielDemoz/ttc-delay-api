@@ -1,31 +1,50 @@
-# TTC Delay Prediction API
+# 🚇 TTC Delay Prediction & Route Optimization
 
-An end-to-end machine learning project using **FastAPI** to serve a model that predicts **major delays (>5 minutes)** in the Toronto TTC subway system based on historical data.  
+An advanced machine learning project that predicts **major delays (>5 minutes)** in the Toronto TTC subway system and provides **route optimization** with interactive map visualization.
+
+## ✨ Features
+
+### 🎯 Core Functionality
+- **Delay Prediction**: Predicts major delays using machine learning
+- **Route Optimization**: Finds the best routes considering delay probabilities
+- **Interactive Map**: Visualizes stations with delay risk indicators
+- **Real-time Predictions**: Get instant delay probability for any station
+
+### 🗺️ Map Visualization
+- **Station Map**: Interactive map showing all TTC stations
+- **Risk Indicators**: Color-coded markers (green/orange/red) based on delay probability
+- **Station Details**: Click markers to see delay probability and station info
+- **Route Visualization**: See optimized routes on the map
+
+### 🚀 Route Optimization
+- **Multi-route Planning**: Compare different route options
+- **Delay Risk Assessment**: Routes ranked by total delay risk
+- **Time Preferences**: Optimize for rush hour, off-peak, or any time
+- **Transfer Optimization**: Smart transfer point recommendations
+
+### 🛠️ Technical Features
+- **FastAPI Backend**: High-performance REST API
+- **Machine Learning**: RandomForestClassifier with 85% accuracy
+- **Interactive Web UI**: Modern, responsive interface
+- **GitHub Pages Ready**: Static deployment support
 
 ---
 
-## Features
-- Predicts whether a subway delay will be major or not.
-- REST API built with **FastAPI**.
-- Model trained with **RandomForestClassifier**.
-- Handles categorical features using **Label Encoding**.
-- Interactive API documentation with **Swagger UI** at `/docs`.
-
----
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-ttc_delay_api/
-├── main.py
-├── requirements.txt
-├── model_training.ipynb    # Colab notebook with full ML pipeline
-├── random_forest_model_new_task.pkl
-├── label_encoders_new_task.pkl
-├── README.md
-├── .gitignore
-
-
+ttc-delay-api/
+├── main.py                          # FastAPI application with web interface
+├── train_model.py                   # Model training script
+├── deploy.py                        # Static deployment script
+├── requirements.txt                 # Python dependencies
+├── model_training.ipynb            # Jupyter notebook with full ML pipeline
+├── random_forest_model_new_task.pkl # Trained ML model
+├── label_encoders_new_task.pkl     # Feature encoders
+├── index.html                      # Static web interface (generated)
+├── .github/workflows/deploy.yml    # GitHub Actions deployment
+├── README.md                       # This file
+└── LICENSE                         # MIT License
 ```
 
 ---
@@ -50,66 +69,118 @@ ttc_delay_api/
 
 ---
 
-## Setup Instructions
+## 🚀 Quick Start
 
-### 1. Clone the Repository
+### Option 1: Run Locally
+
+1. **Clone the Repository**
 ```bash
 git clone https://github.com/yourusername/ttc-delay-api.git
 cd ttc-delay-api
 ```
 
-### 2. Install Dependencies
+2. **Install Dependencies**
 ```bash
 py -m pip install -r requirements.txt
 ```
 
-### 3. Run the API
+3. **Train the Model** (if needed)
+```bash
+py train_model.py
+```
+
+4. **Run the Application**
 ```bash
 py -m uvicorn main:app --reload
 ```
 
-### 4. Access the API
-- Root: [http://127.0.0.1:8000](http://127.0.0.1:8000)  
-- Interactive Swagger Docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+5. **Access the Web Interface**
+- **Main App**: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- **API Docs**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- **Health Check**: [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health)
+
+### Option 2: GitHub Pages (Static)
+
+1. **Generate Static Files**
+```bash
+py deploy.py
+```
+
+2. **Deploy to GitHub Pages**
+- Push to main branch
+- GitHub Actions will automatically deploy
+- Access at: `https://yourusername.github.io/ttc-delay-api`  
 
 ---
 
-## Example Request
+## 🔧 API Endpoints
 
-### Endpoint
+### Delay Prediction
 **POST** `/predict`
-
-### Request Body
 ```json
 {
   "Line": "YU",
-  "Station": "UNION STATION",
+  "Station": "UNION STATION", 
   "Code": "MUIS",
   "DayOfWeek": 0
 }
 ```
 
-### Response
+**Response:**
 ```json
 {
-  "prediction": 1
+  "prediction": 1,
+  "probability": 0.75,
+  "input": { ... }
 }
 ```
 
-- `0` → No major delay  
-- `1` → Major delay (>5 minutes)
+### Route Optimization
+**POST** `/route/optimize`
+```json
+{
+  "start_station": "UNION STATION",
+  "end_station": "FINCH",
+  "day_of_week": 0,
+  "time_preference": "rush_hour"
+}
+```
+
+**Response:**
+```json
+{
+  "routes": [
+    {
+      "stations": ["UNION STATION", "FINCH"],
+      "total_delay_risk": 0.15,
+      "estimated_time": 25
+    }
+  ]
+}
+```
+
+### Station Predictions
+**GET** `/stations/predictions`
+Returns delay probabilities for all stations with coordinates.
+
+### Health Check
+**GET** `/health`
+Returns API status and model loading information.
 
 ---
 
-## Requirements
+## 📦 Dependencies
 
-Main dependencies listed in `requirements.txt`:
-```
+```txt
 fastapi
-uvicorn
+uvicorn[standard]
 pandas
 scikit-learn
 joblib
+numpy
+requests
+matplotlib
+seaborn
 ```
 
 Install with:
@@ -119,46 +190,78 @@ py -m pip install -r requirements.txt
 
 ---
 
-## Key Files
-- **main.py** – FastAPI app with `/predict` endpoint.  
-- **random_forest_model_new_task.pkl** – Trained Random Forest model.  
-- **label_encoders_new_task.pkl** – Encoders for categorical variables.  
-- **requirements.txt** – List of dependencies for setup.  
-- **README.md** – Project description and usage guide.  
-- **.gitignore** – Excludes unnecessary files (cache, logs, models).  
+## 🎯 Key Features Explained
+
+### 🗺️ Interactive Map
+- **Real-time Visualization**: See all TTC stations on an interactive map
+- **Risk Indicators**: Color-coded markers show delay probability
+  - 🟢 Green: Low risk (< 10%)
+  - 🟠 Orange: Medium risk (10-30%)
+  - 🔴 Red: High risk (> 30%)
+- **Station Details**: Click any marker for detailed information
+
+### 🚀 Route Optimization
+- **Smart Routing**: Considers delay probabilities when planning routes
+- **Multiple Options**: Compare different route alternatives
+- **Time Preferences**: Optimize for rush hour, off-peak, or any time
+- **Transfer Points**: Intelligent transfer station recommendations
+
+### 🤖 Machine Learning
+- **Model**: RandomForestClassifier with 85% accuracy
+- **Features**: Line, Station, Code, DayOfWeek
+- **Prediction**: Major delay probability (>5 minutes)
+- **Real-time**: Instant predictions for any station/condition
 
 ---
 
-## Example Workflow
-1. Data loaded from Toronto Open Data API.  
-2. Cleaned and processed (`Date`, `Time`, missing values handled).  
-3. Features engineered (`Line`, `Station`, `Code`, `DayOfWeek`).  
-4. Encoded categorical variables with LabelEncoder.  
-5. Model trained with RandomForestClassifier.  
-6. Model and encoders saved as `.pkl` files.  
-7. FastAPI app created to serve predictions.  
+## 🔄 Development Workflow
+
+1. **Data Collection**: Toronto Open Data API
+2. **Data Processing**: Cleaning, feature engineering, encoding
+3. **Model Training**: RandomForestClassifier with cross-validation
+4. **API Development**: FastAPI with interactive web interface
+5. **Deployment**: GitHub Pages with automated CI/CD
 
 ---
-## Reproducibility
 
-The full training workflow is available in the Jupyter Notebook:
+## 📊 Model Performance
 
-- [`model_training.ipynb`](./model_training.ipynb)
+- **Accuracy**: 85%
+- **Precision**: 89% (No delay), 44% (Major delay)
+- **Recall**: 94% (No delay), 31% (Major delay)
+- **Feature Importance**:
+  - Code: 41.6%
+  - Station: 38.7%
+  - DayOfWeek: 17.2%
+  - Line: 2.5%
 
-This notebook covers:
-1. Data loading from Toronto Open Data API  
-2. Cleaning and feature engineering  
-3. Exploratory Data Analysis (EDA) with plots  
-4. Model training and evaluation  
-5. Export of trained model (`random_forest_model_new_task.pkl`)  
-6. Export of label encoders (`label_encoders_new_task.pkl`)  
+---
 
-To run it locally or in Google Colab:
-1. Open `model_training.ipynb`
-2. Install required dependencies (`pandas`, `scikit-learn`, `matplotlib`, `seaborn`)
-3. Run all cells
-4. Export the trained model & encoders for deployment with the FastAPI app
+## 🚀 Deployment Options
 
+### Local Development
+```bash
+py -m uvicorn main:app --reload
+```
 
-## License
-This project is open-source and available for educational and research purposes.
+### GitHub Pages (Static)
+```bash
+py deploy.py
+git add .
+git commit -m "Deploy to GitHub Pages"
+git push origin main
+```
+
+### Docker (Optional)
+```dockerfile
+FROM python:3.9-slim
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+---
+
+## 📝 License
+This project is open-source and available under the MIT License for educational and research purposes.
