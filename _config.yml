@@ -1,0 +1,24 @@
+# GitHub Pages Configuration
+title: TTC Delay Prediction & Route Optimization
+description: Predict TTC subway delays and find optimal routes using machine learning
+baseurl: "/ttc-delay-api"
+url: "https://danieldemoz.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - requirements.txt
+  - main.py
+  - train_model.py
+  - deploy.py
+  - model_training.ipynb
+  - random_forest_model_new_task.pkl
+  - label_encoders_new_task.pkl
+  - __pycache__
+  - .gitignore
+  - .github
